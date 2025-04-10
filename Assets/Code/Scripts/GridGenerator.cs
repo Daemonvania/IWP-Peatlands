@@ -3,8 +3,8 @@ using UnityEngine;
 public class GridGenerator : MonoBehaviour
 {
     
-    int _mapwidth = 10;
-    int _mapheight = 10;
+    int _mapwidth = 6;
+    int _mapheight = 6;
     [SerializeField] GameObject _tilePrefab;
     [SerializeField] private int _tileSize = 2;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
