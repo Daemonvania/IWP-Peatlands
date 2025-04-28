@@ -1,32 +1,78 @@
+using System;
 using UnityEngine;
+using UnityEngine.WSA;
+using Random = UnityEngine.Random;
 
-public class TileHolder : MonoBehaviour, ITileHolder
+public class TileHolder : MonoBehaviour
 {
-   [SerializeField] public GameObject _tile;
-   [SerializeField] private float rayLength = 5f; 
+   [SerializeField] public GameObject tileGameObject;
+   [SerializeField] private float rayLength = 5f;
+   [SerializeField] private GameObject emptyTile;
    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+   [SerializeField] private TileSO[] tileSOList;
+   
+   TileSO currentTile = null;
+
+   public TileSO getTile()
+   {
+       return currentTile;
+   }
+
+   private void Start()
+   {
+       if (Random.Range(0, 6) == 0)
+       {
+           PlaceTile(tileSOList[Random.Range(0, tileSOList.Length)]);
+       }
+       else
+       { 
+           emptyTile.SetActive(true);
+       }
+   }
+
+   // public void OnClicked(TileSO tileSO)
+    // {
+    //     if (currentTile == null)
+    //     {
+    //         PlaceTile(tileSO);
+    //     }
+    //     else
+    //     {
+    //         Debug.Log("Tile is already occupied.");
+    //     }
+    // }
+    public bool isEmpty()
     {
+        if (currentTile == null)
+        {
+            return true;
+        }
+
+        return false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlaceTile(TileSO tileSo)
     {
-        
+        currentTile = tileSo;
+        emptyTile.SetActive(false);
+        tileGameObject = Instantiate(tileSo.asset, transform.position, Quaternion.identity);
+        tileGameObject.transform.SetParent(transform);
     }
     
-    public ITile getTile()
+    public void OnHover(TileSO tileSo)
     {
-        return _tile.GetComponent<ITile>();
+        if (currentTile == null)
+        {
+           
+        }
+        else
+        {
+            Debug.Log("Tile is already occupied.");
+        }
     }
     
-    public void OnClicked()
-    {
-        CastRays();
-        _tile.GetComponent<ITile>().OnClicked();
-    }
     
+
     void CastRays()
     {
         // Define the six directions for a hexagonal grid

@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "Tile", menuName = "Scriptable Objects/Tile")]
 public class TileSO : ScriptableObject
 {
-    [SerializeField] string Name;
-    [SerializeField] private string Description;
+    [SerializeField] public string Name;
+    [SerializeField] public string Description;
     
-    [SerializeField] GameObject prefab;
+    [SerializeField] public GameObject asset;
+    
+    [SerializeField] public Image icon;
 }

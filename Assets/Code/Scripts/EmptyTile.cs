@@ -21,12 +21,12 @@ public class EmptyTile : MonoBehaviour, ITile
 
     public void OnClicked()
     {
-        TileHolder tileHolder = gameObject.GetComponentInParent<TileHolder>();
-
-        tileHolder._tile = Instantiate(TileToSpawn, transform.position, transform.rotation);
-        tileHolder._tile.transform.SetParent(tileHolder.transform);
-        
-        Destroy(gameObject);
+        // TileHolder tileHolder = gameObject.GetComponentInParent<TileHolder>();
+        //
+        // tileHolder._tile = Instantiate(TileToSpawn, transform.position, transform.rotation);
+        // tileHolder._tile.transform.SetParent(tileHolder.transform);
+        //
+        // Destroy(gameObject);
     }
 
 }

@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Farm
   Description: A regular farm
-  prefab: {fileID: 2392758633659962373, guid: 9507713a76bdc274787f7d3045fcbfe0, type: 3}
+  asset: {fileID: 2392758633659962373, guid: 9507713a76bdc274787f7d3045fcbfe0, type: 3}
+  icon: {fileID: 0}

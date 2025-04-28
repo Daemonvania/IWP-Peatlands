@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f36005fa4ea77a245b6c35ccb07890e6, type: 2}
+  - {fileID: 2100000, guid: f3adcd85a9e22fc469186513734fb2ec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -150,7 +150,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f36005fa4ea77a245b6c35ccb07890e6, type: 2}
+  - {fileID: 2100000, guid: f3adcd85a9e22fc469186513734fb2ec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -236,7 +236,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f36005fa4ea77a245b6c35ccb07890e6, type: 2}
+  - {fileID: 2100000, guid: f3adcd85a9e22fc469186513734fb2ec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -308,7 +308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 44660cac59bbdbf4e853e31697e3ad90, type: 3}
       propertyPath: m_Name
-      value: FarmTIle
+      value: MossTile
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 44660cac59bbdbf4e853e31697e3ad90, type: 3}
       propertyPath: m_Layer
