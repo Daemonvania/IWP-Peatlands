@@ -49,7 +49,7 @@ MonoBehaviour:
   tileGameObject: {fileID: 0}
   rayLength: 2.5
   emptyTile: {fileID: 2503951459103459402}
-  tileSOList:
+  RandomPlaceTileSOList:
   - {fileID: 11400000, guid: 4f552e85ae9146248b52b52c37e0175d, type: 2}
 --- !u!136 &4288940273902928874
 CapsuleCollider:
@@ -70,8 +70,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.9633984
-  m_Height: 2.087097
+  m_Radius: 0.8
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &255328423472520271

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -16,6 +17,12 @@ public class UIManager : MonoBehaviour
         _tilePlacing = player.GetComponent<TilePlacing>();
         _manageTurns = GetComponent<ManageTurns>();
     }
+
+    private void Start()
+    {
+        tileSelectScreen.SetActive(false);
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnEnable()
     {

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9a8405065d66404b9988f2024ec1863, type: 3}
-  m_Name: Paludiculture
+  m_Name: Harvesting
   m_EditorClassIdentifier: 
   tilesNeeded:
-  - {fileID: 11400000, guid: 5e842b79a3c4d1f4684d4b269a018c77, type: 2}
   - {fileID: 11400000, guid: bc5e551a0bfcc1f479fd785924b448f0, type: 2}
-  Name: Paludiculture
-  Description: The culture of the paludi
+  - {fileID: 11400000, guid: 4f552e85ae9146248b52b52c37e0175d, type: 2}
+  Name: Harvesting
+  Description: Harvestt
   MoneyScore: 100
   EcoScore: 100

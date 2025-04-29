@@ -44,7 +44,7 @@ public class ShowTileCards : MonoBehaviour
             }
             else
             {
-                _tileCards[i].gameObject.SetActive(false);
+                // _tileCards[i].gameObject.SetActive(false);
             }
         }
     }

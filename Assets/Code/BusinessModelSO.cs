@@ -3,11 +3,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Tile", menuName = "Scriptable Objects/BusinessModel")]
 public class BusinessModelSO : ScriptableObject
 {
-    [SerializeField] TileSO[] tilesNeeded;
+    [SerializeField] public TileSO[] tilesNeeded;
     
-    [SerializeField] private string Name;
-    [SerializeField] private string Description;
+    [SerializeField] public string Name;
+    [SerializeField] public  string Description;
     
-    [SerializeField] private int MoneyScore;
-    [SerializeField] private int EcoScore;
+    [SerializeField] public  int MoneyScore;
+    [SerializeField] public  int EcoScore;
 }

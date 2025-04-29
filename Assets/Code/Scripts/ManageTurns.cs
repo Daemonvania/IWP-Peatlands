@@ -6,7 +6,7 @@ public class ManageTurns : MonoBehaviour
     private GameObject player;
     private TilePlacing _tilePlacing;
     
-    public int currentPlayerIndex = 4;
+    [HideInInspector] public int currentPlayerIndex = 4;
     
     public PlayerCardManager[] players;
     
@@ -15,9 +15,9 @@ public class ManageTurns : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        currentPlayerIndex = 3;
         player = GameObject.FindGameObjectWithTag("Player");
         _tilePlacing = player.GetComponent<TilePlacing>();
-        currentPlayerIndex = 3;
     }
 
     private void OnEnable()
