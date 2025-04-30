@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a153eb53cdfe1a4429dbf1cdfba96b28, type: 3}
-  m_Name: HarvesterTile
+  m_Name: MeatProduction
   m_EditorClassIdentifier: 
-  Name: Harvester
-  Description: A harvester
-  asset: {fileID: 2392758633659962373, guid: 0d203a2cb5c5d66449ffdc5b79ce4394, type: 3}
+  Name: Meat Production
+  Description: 
+  asset: {fileID: 2392758633659962373, guid: ec79c4b6518690a44a94b250faea9406, type: 3}
   icon: {fileID: 0}

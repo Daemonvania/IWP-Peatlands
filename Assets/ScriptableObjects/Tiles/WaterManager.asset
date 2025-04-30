@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a153eb53cdfe1a4429dbf1cdfba96b28, type: 3}
-  m_Name: FarmTile
+  m_Name: WaterManager
   m_EditorClassIdentifier: 
-  Name: Farm
-  Description: A regular farm
-  asset: {fileID: 2392758633659962373, guid: 9507713a76bdc274787f7d3045fcbfe0, type: 3}
+  Name: Water Manager
+  Description: 
+  asset: {fileID: 2392758633659962373, guid: 1c2452513e618b54d89630cb6a33eecd, type: 3}
   icon: {fileID: 0}

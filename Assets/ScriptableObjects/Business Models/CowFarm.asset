@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9a8405065d66404b9988f2024ec1863, type: 3}
-  m_Name: Paludiculture
+  m_Name: CowFarm
   m_EditorClassIdentifier: 
   tilesNeeded:
-  - {fileID: 11400000, guid: 5e842b79a3c4d1f4684d4b269a018c77, type: 2}
-  - {fileID: 11400000, guid: bc5e551a0bfcc1f479fd785924b448f0, type: 2}
-  Name: Paludiculture
-  Description: The culture of the paludi
-  MoneyScore: 100
-  EcoScore: 100
+  - {fileID: 11400000, guid: 809794f7578698b43b2a3fc2055b0844, type: 2}
+  - {fileID: 11400000, guid: b775f1d97bdfa4e4b9de55f2b481b34b, type: 2}
+  - {fileID: 11400000, guid: 149dfeff556305c48a71b775b9882473, type: 2}
+  Name: Cow Farm
+  Description: 
+  MoneyScore: 150
+  EcoScore: -50

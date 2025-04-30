@@ -3,7 +3,7 @@ using UnityEngine.WSA;
 
 public class ShowTileCards : MonoBehaviour
 {
-    [HideInInspector] private TileSO[] _tiles;
+    private TileSO[] _tiles;
     
     private ShowTileCard[] _tileCards;
     

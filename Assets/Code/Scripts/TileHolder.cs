@@ -30,9 +30,9 @@ public class TileHolder : MonoBehaviour
 
    private void Start()
    {
-       if (Random.Range(0, 6) == 0)
+       if (Random.Range(0, 8) == 0)
        {
-           // PlaceTile(RandomPlaceTileSOList[Random.Range(0, RandomPlaceTileSOList.Length)]);
+           PlaceTile(RandomPlaceTileSOList[Random.Range(0, RandomPlaceTileSOList.Length)]);
        }
        else
        { 

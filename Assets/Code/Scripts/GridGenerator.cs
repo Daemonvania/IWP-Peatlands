@@ -9,7 +9,7 @@ public class GridGenerator : MonoBehaviour
     [SerializeField] int _mapheight = 5;
     [SerializeField] GameObject _tilePrefab;
     [SerializeField] private int _tileSize = 2;
-    [SerializeField] private List<GameObject> _tiles = new List<GameObject>();
+    public List<GameObject> _tiles = new List<GameObject>();
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
