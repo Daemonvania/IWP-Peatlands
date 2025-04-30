@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        tileSelectScreen.SetActive(false);
+        // tileSelectScreen.SetActive(false);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -39,15 +39,16 @@ public class UIManager : MonoBehaviour
     private void OnTurnStarted(TileSO tile)
     {
         tileSelectScreen.SetActive(false);
-        int currentPlayerShow = _manageTurns.currentPlayerIndex + 1;
-        currentPlayerText.text = "Player " + currentPlayerShow;
     }
     
     private void OnTurnEnded()
     {
+        Debug.Log("Turn ended");
         ShowTileCards showTileCards = tileSelectScreen.GetComponent<ShowTileCards>();
         showTileCards.SetHandTiles(_manageTurns.GetCurrentPlayerHandTiles());
         showTileCards.ShowPlayerHand();
+        int currentPlayerShow = _manageTurns.currentPlayerIndex + 1;
+        currentPlayerText.text = "Player " + currentPlayerShow;
         tileSelectScreen.SetActive(true);
     }
 }

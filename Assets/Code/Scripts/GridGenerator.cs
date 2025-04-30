@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class GridGenerator : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class GridGenerator : MonoBehaviour
     [SerializeField] int _mapheight = 5;
     [SerializeField] GameObject _tilePrefab;
     [SerializeField] private int _tileSize = 2;
-    public List<GameObject> _tiles = new List<GameObject>();
+    public List<TileHolder> _tiles = new List<TileHolder>();
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,7 +21,10 @@ public class GridGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            CheckAllBusinessModels();
+        }
     }
 
     private Vector2 GetHexCoords(int x, int z)
@@ -40,8 +44,16 @@ public class GridGenerator : MonoBehaviour
                 Vector3 position = new Vector3(hexCoords.x, 0, hexCoords.y);
                 GameObject tile = Instantiate(_tilePrefab, position, Quaternion.identity);
                 tile.transform.SetParent(transform);
-                _tiles.Add(tile);
+                _tiles.Add(tile.GetComponent<TileHolder>());
             }
+        }
+    }
+
+    void CheckAllBusinessModels()
+    {
+        foreach (var tile in _tiles)
+        {
+            tile.CheckForModel();
         }
     }
 }

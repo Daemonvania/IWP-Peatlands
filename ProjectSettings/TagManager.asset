@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - BusinessModelManager
+  - CurrencyManager
   layers:
   - Default
   - TransparentFX

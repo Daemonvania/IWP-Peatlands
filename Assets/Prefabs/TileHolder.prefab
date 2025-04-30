@@ -49,6 +49,7 @@ MonoBehaviour:
   tileGameObject: {fileID: 0}
   rayLength: 2.5
   emptyTile: {fileID: 2503951459103459402}
+  completedMat: {fileID: 2100000, guid: 3d22a41f86ea8b34c8ed4ea988767fc8, type: 2}
   RandomPlaceTileSOList:
   - {fileID: 11400000, guid: 4f552e85ae9146248b52b52c37e0175d, type: 2}
 --- !u!136 &4288940273902928874

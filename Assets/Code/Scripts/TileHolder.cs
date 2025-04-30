@@ -9,12 +9,14 @@ public class TileHolder : MonoBehaviour
    [SerializeField] public GameObject tileGameObject;
    [SerializeField] private float rayLength = 5f;
    [SerializeField] private GameObject emptyTile;
+   [SerializeField] private Material completedMat;
    
    [SerializeField] private TileSO[] RandomPlaceTileSOList;
    
    TileSO currentTile = null;
    
    private ManageBusinessModels _manageBusinessModels;
+   private ManageCurrencies _manageCurrencies;
    
    private bool isInBusinessModel = false;
    
@@ -26,6 +28,7 @@ public class TileHolder : MonoBehaviour
    private void Awake()
    {
        _manageBusinessModels = GameObject.FindGameObjectWithTag("BusinessModelManager").GetComponent<ManageBusinessModels>();
+         _manageCurrencies = GameObject.FindGameObjectWithTag("CurrencyManager").GetComponent<ManageCurrencies>();
    }
 
    private void Start()
@@ -68,7 +71,16 @@ public class TileHolder : MonoBehaviour
         tileGameObject = Instantiate(tileSo.asset, transform.position, Quaternion.identity);
         tileGameObject.transform.SetParent(transform);
         
-        
+        CheckForModel();
+       
+    }
+
+    public void CheckForModel()
+    {
+        if (currentTile == null || isInBusinessModel)
+        {
+            return;
+        }
         List<TileHolder> tileHolders = new List<TileHolder>();
         tileHolders.Add(this);
         CastRays(tileHolders);
@@ -160,12 +172,14 @@ public class TileHolder : MonoBehaviour
             {
                 // Business Model Complete
                 Debug.Log($"Tiles match for business model: {businessModel.Name}");
+                _manageCurrencies.AddMoney(businessModel.MoneyScore);
+                _manageCurrencies.AddEnvironment(businessModel.EcoScore);
                 matchFound = true;
 
-                foreach (var timeHolder in previousTileHolders)
+                foreach (var tileHolder in previousTileHolders)
                 {
-                    timeHolder.isInBusinessModel = true;
-                    timeHolder.gameObject.SetActive(false);
+                    tileHolder.isInBusinessModel = true;
+                    tileHolder.GetComponentInChildren<Renderer>().material = completedMat;
                 }
                 
                 break; // Exit the loop as a match is found

@@ -8,7 +8,7 @@ public class TilePlacing : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
 
-    bool isPlacing = true;
+    bool isPlacing = false;
     
     [SerializeField] TileSO _selectedTile;
     

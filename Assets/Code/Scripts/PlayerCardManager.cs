@@ -7,7 +7,7 @@ public class PlayerCardManager : MonoBehaviour
     private List<TileSO> handTiles = new List<TileSO>();
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         for (int i = 0; i < 3; i++)
         {

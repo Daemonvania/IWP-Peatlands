@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 330585545}
-  _selectedTile: {fileID: 11400000, guid: 4f552e85ae9146248b52b52c37e0175d, type: 2}
+  _selectedTile: {fileID: 0}
 --- !u!224 &229733560 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8538485447039837458, guid: 781e06d0d38a7774ca068b5e12889946, type: 3}
@@ -481,6 +481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileList:
   - {fileID: 11400000, guid: 283db102e3757504fbbc63b1308aa0f9, type: 2}
+  - {fileID: 11400000, guid: bc5e551a0bfcc1f479fd785924b448f0, type: 2}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,7 +665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileList:
   - {fileID: 11400000, guid: b775f1d97bdfa4e4b9de55f2b481b34b, type: 2}
-  - {fileID: 11400000, guid: bc5e551a0bfcc1f479fd785924b448f0, type: 2}
+  - {fileID: 11400000, guid: 809794f7578698b43b2a3fc2055b0844, type: 2}
 --- !u!1 &403487571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,7 +1069,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -190.09985, w: -5.2493286}
+  m_margin: {x: 0, y: 0, z: 54.287354, w: 11.433899}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1559,7 +1560,7 @@ GameObject:
   - component: {fileID: 1715547941}
   - component: {fileID: 1715547940}
   m_Layer: 5
-  m_Name: Money (1)
+  m_Name: Environmental
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1581,7 +1582,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -27, y: -46}
+  m_AnchoredPosition: {x: -27, y: -49.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1715547940
@@ -1695,7 +1696,7 @@ GameObject:
   - component: {fileID: 1820775922}
   m_Layer: 0
   m_Name: CurrencyManager
-  m_TagString: Untagged
+  m_TagString: CurrencyManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1727,6 +1728,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b79a91f044aa0934dbc1e91f35a2430f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyText: {fileID: 1677307919}
+  envText: {fileID: 1715547940}
 --- !u!1 &1981628921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1992,10 +1995,10 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 662677916}
   - {fileID: 179930684}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1981628922}
   - {fileID: 787671}
   - {fileID: 136305203}
-  - {fileID: 662677916}
