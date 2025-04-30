@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BusinessModelManager
   - CurrencyManager
+  - GridGenerator
   layers:
   - Default
   - TransparentFX

@@ -21,10 +21,10 @@ public class GridGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            CheckAllBusinessModels();
-        }
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     CheckAllBusinessModels();
+        // }
     }
 
     private Vector2 GetHexCoords(int x, int z)
@@ -49,11 +49,23 @@ public class GridGenerator : MonoBehaviour
         }
     }
 
-    void CheckAllBusinessModels()
+    public void CheckForBusinessModels()
     {
         foreach (var tile in _tiles)
         {
             tile.CheckForModel();
         }
+    }
+    
+    public bool CheckIfMapComplete()
+    {
+        foreach (var tile in _tiles)
+        {
+            if (tile.getTile() == null)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -71,7 +71,7 @@ public class TileHolder : MonoBehaviour
         tileGameObject = Instantiate(tileSo.asset, transform.position, Quaternion.identity);
         tileGameObject.transform.SetParent(transform);
         
-        CheckForModel();
+        // CheckForModel();
        
     }
 
@@ -185,10 +185,32 @@ public class TileHolder : MonoBehaviour
                 break; // Exit the loop as a match is found
             }
         }
-
+        //no business model complete, but business model possible
         if (!matchFound)
         {
             CastRays(previousTileHolders);
+
+            // todo kinda broken, can only do one line per thing (so if there are multiple it confuses, also it might need to be done somewhere
+            // else to properly realize where business models are
+            // if (previousTileHolders.Count > 0)
+            // {
+            //     LineRenderer lineRenderer = GetComponent<LineRenderer>();
+            //     if (lineRenderer != null)
+            //     {
+            //         Vector3 offset = new Vector3(0, 2f, 0); // Offset the line 2 units above the objects
+            //         Vector3 lastTilePosition = previousTileHolders[previousTileHolders.Count - 1].transform.position + offset;
+            //
+            //         // Set the start and end positions of the LineRenderer
+            //         lineRenderer.SetPosition(0, transform.position + offset);
+            //         lineRenderer.SetPosition(1, lastTilePosition);
+            //
+            //         // Optional: Configure LineRenderer properties
+            //         lineRenderer.startWidth = 0.05f;
+            //         lineRenderer.endWidth = 0.05f;
+            //         lineRenderer.startColor = Color.blue;
+            //         lineRenderer.endColor = Color.blue;
+            //     }
+            // }
         }
     }
     

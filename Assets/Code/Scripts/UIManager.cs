@@ -47,8 +47,29 @@ public class UIManager : MonoBehaviour
         ShowTileCards showTileCards = tileSelectScreen.GetComponent<ShowTileCards>();
         showTileCards.SetHandTiles(_manageTurns.GetCurrentPlayerHandTiles());
         showTileCards.ShowPlayerHand();
+        
+        string playername;
+        switch (_manageTurns.currentPlayerIndex)
+        {
+            case 0:
+                playername = "Farmer";
+                break;
+            case 1:
+                playername = "Policymaker";
+                break;
+            case 2:
+                playername = "Chief Of Industry";
+                break;
+            case 3:
+                playername = "Banker";
+                break;
+            default:
+                playername = "Unknown";
+                break;
+        }
+       
         int currentPlayerShow = _manageTurns.currentPlayerIndex + 1;
-        currentPlayerText.text = "Player " + currentPlayerShow;
+        currentPlayerText.text = "Player " + currentPlayerShow + ": " + playername;
         tileSelectScreen.SetActive(true);
     }
 }

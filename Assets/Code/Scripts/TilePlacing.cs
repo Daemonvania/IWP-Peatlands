@@ -10,11 +10,22 @@ public class TilePlacing : MonoBehaviour
 
     bool isPlacing = false;
     
-    [SerializeField] TileSO _selectedTile;
+    TileSO _selectedTile;
+    
+    //todo these two should not be handled here, but in TurnManager and UIManager
+    [SerializeField] private ResultsScreen _resultsScreen;
+    
+    private GridGenerator _gridGenerator;
+    
     
     public event Action<TileSO> OnTurnStarted;
     public event Action OnTurnEnded;
 
+    private void Awake()
+    {
+        _gridGenerator = GameObject.FindGameObjectWithTag("GridGenerator").GetComponent<GridGenerator>();
+        _resultsScreen.gameObject.SetActive(false);
+    }
     private void Start()
     {
         OnTurnEnded.Invoke();
@@ -40,7 +51,11 @@ public class TilePlacing : MonoBehaviour
                 {
                     isPlacing = false;
                     tileHolder.PlaceTile(_selectedTile);
+                    _gridGenerator.CheckForBusinessModels();
                     StartCoroutine(EndTurn());
+
+                
+
                 };
             }
         }
@@ -49,7 +64,15 @@ public class TilePlacing : MonoBehaviour
     private IEnumerator EndTurn()
     {
         yield return new WaitForSeconds(0.3f);
-        OnTurnEnded?.Invoke();
+        if (_gridGenerator.CheckIfMapComplete())
+        {
+            _resultsScreen.gameObject.SetActive(true);
+            _resultsScreen.ShowResults();
+        }
+        else
+        {
+            OnTurnEnded?.Invoke();
+        }
     }
     
     public void SelectTile(TileSO tile)
