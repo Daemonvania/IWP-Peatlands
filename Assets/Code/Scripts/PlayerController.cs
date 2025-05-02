@@ -8,17 +8,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float edgeThickness = 10f;      // How close to the edge before movement starts
     [SerializeField] float moveSpeed = 10f;          // Movement speed
     [SerializeField] float borderPadding = 0f;
+    [SerializeField] float zoomSpeed = 15f;           // Speed of zooming
+    [SerializeField] float minZoom = 5f;             // Minimum zoom distance
+    [SerializeField] float maxZoom = 50f;            // Maximum zoom distance
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Cursor.lockState = CursorLockMode.Confined;
     }
 
-    // Update is called once per frame
     void Update()
     {
         CameraMovement();
+        CameraZoom();
     }
 
     private void CameraMovement()
@@ -26,13 +28,12 @@ public class PlayerController : MonoBehaviour
         Vector3 direction = Vector3.zero;
         Vector3 mousePos = Input.mousePosition;
 
-        // Horizontal (X-axis)
+        // Edge Scrolling
         if (mousePos.x <= edgeThickness + borderPadding)
             direction.z = 1;
         else if (mousePos.x >= Screen.width - edgeThickness - borderPadding)
             direction.z = -1;
 
-        // Vertical (Z-axis)
         if (mousePos.y <= edgeThickness + borderPadding)
             direction.x = -1;
         else if (mousePos.y >= Screen.height - edgeThickness - borderPadding)
@@ -40,9 +41,21 @@ public class PlayerController : MonoBehaviour
 
         // Apply movement
         _camera.transform.Translate(direction.normalized * (moveSpeed * Time.deltaTime), Space.World);
-        
+    
         _camera.transform.position = Mathf.Clamp(_camera.transform.position.x, -10f, 10f) * Vector3.right +
                                      Mathf.Clamp(_camera.transform.position.y, -10f, 10f) * Vector3.up +
-                                     Mathf.Clamp(_camera.transform.position.z, -10f, 10f) * Vector3.forward;
+                                     Mathf.Clamp(_camera.transform.position.z, -10f, 6) * Vector3.forward;
+
+      
     }
+    
+    private void CameraZoom()
+    {
+        //todo fix moving after reaching max (clamp zoom in all directions.?)
+        float scroll = Mouse.current.scroll.ReadValue().y;
+        Vector3 zoom = _camera.transform.position + _camera.transform.forward * (scroll * zoomSpeed * Time.deltaTime);
+        zoom.y = Mathf.Clamp(zoom.y, minZoom, maxZoom);
+        _camera.transform.position = zoom;
+    }
+
 }

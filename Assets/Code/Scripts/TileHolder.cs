@@ -10,8 +10,7 @@ public class TileHolder : MonoBehaviour
    [SerializeField] private float rayLength = 5f;
    [SerializeField] private GameObject emptyTile;
    [SerializeField] private Material completedMat;
-   
-   [SerializeField] private TileSO[] RandomPlaceTileSOList;
+   [SerializeField] private TileTooltip _tileTooltip;
    
    TileSO currentTile = null;
    
@@ -29,31 +28,24 @@ public class TileHolder : MonoBehaviour
    {
        _manageBusinessModels = GameObject.FindGameObjectWithTag("BusinessModelManager").GetComponent<ManageBusinessModels>();
          _manageCurrencies = GameObject.FindGameObjectWithTag("CurrencyManager").GetComponent<ManageCurrencies>();
+         _tileTooltip = FindFirstObjectByType<TileTooltip>(FindObjectsInactive.Include);
+
    }
 
    private void Start()
    {
-       if (Random.Range(0, 8) == 0)
-       {
-           PlaceTile(RandomPlaceTileSOList[Random.Range(0, RandomPlaceTileSOList.Length)]);
-       }
-       else
-       { 
-           emptyTile.SetActive(true);
-       }
+         // emptyTile.SetActive(true);
    }
 
-   // public void OnClicked(TileSO tileSO)
-    // {
-    //     if (currentTile == null)
-    //     {
-    //         PlaceTile(tileSO);
-    //     }
-    //     else
-    //     {
-    //         Debug.Log("Tile is already occupied.");
-    //     }
-    // }
+   public void OnClicked()
+    {
+       _tileTooltip.ShowToolTip(currentTile);
+    }
+
+    public void HideTooltip()
+    {
+        _tileTooltip.HideToolTip();
+    }
     public bool isEmpty()
     {
         if (currentTile == null)
@@ -72,7 +64,6 @@ public class TileHolder : MonoBehaviour
         tileGameObject.transform.SetParent(transform);
         
         // CheckForModel();
-       
     }
 
     public void CheckForModel()
@@ -142,24 +133,20 @@ public class TileHolder : MonoBehaviour
                 previousTileSOs.Add(tileHolder.currentTile);
             }
         }
-        previousTileHolders.Add(this);
         
         if (previousTileSOs.Contains(currentTile)) { return;}
         
-        previousTileSOs.Add(currentTile);
+        previousTileHolders.Add(this);
 
-        foreach (var tile in previousTileSOs)
-        {
-            Debug.Log(tile.Name);    
-        }
+        previousTileSOs.Add(currentTile);
         
-        Debug.Log(previousTileSOs.Count);
         BusinessModelSO[] relevantBusinessModels = _manageBusinessModels.GetBusinessModelsIncludingTiles(previousTileSOs.ToArray());
         bool matchFound = false;
 
         if (relevantBusinessModels.Length == 0)
         {
             Debug.Log("No relevant business models found.");
+            previousTileHolders.Remove(this);
             return;
         }
         
@@ -179,7 +166,23 @@ public class TileHolder : MonoBehaviour
                 foreach (var tileHolder in previousTileHolders)
                 {
                     tileHolder.isInBusinessModel = true;
-                    tileHolder.GetComponentInChildren<Renderer>().material = completedMat;
+                    Renderer renderer = tileHolder.GetComponentInChildren<Renderer>();
+                    if (renderer != null)
+                    {
+                        // Create a black material dynamically
+                        // Material blackMaterial = new Material(Shader.Find("Standard"));
+                        // blackMaterial.color = Color.black;
+
+                        // Replace each material in the array with the black material
+                        Material[] materials = renderer.materials;
+                        for (int i = 0; i < materials.Length; i++)
+                        {
+                            materials[i] = completedMat;
+                        }
+
+                        // Assign the updated materials array back to the renderer
+                        renderer.materials = materials;
+                    }
                 }
                 
                 break; // Exit the loop as a match is found
@@ -189,28 +192,14 @@ public class TileHolder : MonoBehaviour
         if (!matchFound)
         {
             CastRays(previousTileHolders);
-
-            // todo kinda broken, can only do one line per thing (so if there are multiple it confuses, also it might need to be done somewhere
-            // else to properly realize where business models are
-            // if (previousTileHolders.Count > 0)
-            // {
-            //     LineRenderer lineRenderer = GetComponent<LineRenderer>();
-            //     if (lineRenderer != null)
-            //     {
-            //         Vector3 offset = new Vector3(0, 2f, 0); // Offset the line 2 units above the objects
-            //         Vector3 lastTilePosition = previousTileHolders[previousTileHolders.Count - 1].transform.position + offset;
-            //
-            //         // Set the start and end positions of the LineRenderer
-            //         lineRenderer.SetPosition(0, transform.position + offset);
-            //         lineRenderer.SetPosition(1, lastTilePosition);
-            //
-            //         // Optional: Configure LineRenderer properties
-            //         lineRenderer.startWidth = 0.05f;
-            //         lineRenderer.endWidth = 0.05f;
-            //         lineRenderer.startColor = Color.blue;
-            //         lineRenderer.endColor = Color.blue;
-            //     }
-            // }
+            foreach (var tileHolder in previousTileHolders)
+            {
+                if (tileHolder.transform.position.y <= 0)
+                {
+                    tileHolder.transform.position = new Vector3(tileHolder.transform.position.x,
+                        tileHolder.transform.position.y + 0.22f, tileHolder.transform.position.z);
+                }
+            }
         }
     }
     

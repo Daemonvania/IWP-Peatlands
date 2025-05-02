@@ -9,15 +9,19 @@ public class GridGenerator : MonoBehaviour
     [SerializeField] int _mapwidth = 5;
     [SerializeField] int _mapheight = 5;
     [SerializeField] GameObject _tilePrefab;
-    [SerializeField] private int _tileSize = 2;
+    [SerializeField] private float _tileSize = 2;
     public List<TileHolder> _tiles = new List<TileHolder>();
     
+    
+    [SerializeField] private TileSO[] RandomPlaceTileSOList;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         GenerateMapGrid();
+     
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -34,6 +38,8 @@ public class GridGenerator : MonoBehaviour
         return new Vector2(xPos, zPos);
     }
     
+    //todo for random generation, check around if peatlands are adjascent and delete if so? Or also check if there is a certain amount
+    //of peatlands in the map if not run it again
     void GenerateMapGrid()
     {
         for (int x = 0; x < _mapwidth; x++)
@@ -47,8 +53,38 @@ public class GridGenerator : MonoBehaviour
                 _tiles.Add(tile.GetComponent<TileHolder>());
             }
         }
+
+        SpawnRandomTiles();
+
+        int PeatlandCount = 0;
+        foreach (var tile in _tiles )
+        {
+            if (tile.getTile() != null)
+            {
+                if (tile.getTile().Name == "Peatland")
+                {
+                    PeatlandCount++;
+                }
+            }
+        }
+        if (PeatlandCount < 2)
+        {
+            SpawnRandomTiles();
+        }
     }
 
+    private void SpawnRandomTiles()
+    {
+        //ranndomly place items
+        foreach (var tile in _tiles)
+        {
+            if (Random.Range(0, 8) == 0)
+            {
+                tile.PlaceTile(RandomPlaceTileSOList[Random.Range(0, RandomPlaceTileSOList.Length)]);
+            }
+        }
+    }
+ 
     public void CheckForBusinessModels()
     {
         foreach (var tile in _tiles)

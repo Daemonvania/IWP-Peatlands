@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.WSA;
 
 public class ShowTileCards : MonoBehaviour
@@ -8,6 +9,12 @@ public class ShowTileCards : MonoBehaviour
     private ShowTileCard[] _tileCards;
     
     private TilePlacing _tilePlacing;
+    
+    [SerializeField] private Image visibilityButtonImage;
+    
+    
+    [SerializeField] private Sprite showSprite;
+    [SerializeField] private Sprite hideSprite;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -45,6 +52,23 @@ public class ShowTileCards : MonoBehaviour
             else
             {
                 // _tileCards[i].gameObject.SetActive(false);
+            }
+        }
+    }
+    
+    public void ToggleCardVisibility()
+    {
+        for (int i = 0; i < _tileCards.Length; i++)
+        {
+            if (_tileCards[i].gameObject.activeSelf)
+            {
+                _tileCards[i].gameObject.SetActive(false);
+                visibilityButtonImage.sprite = showSprite;
+            }
+            else
+            {
+                _tileCards[i].gameObject.SetActive(true);
+                visibilityButtonImage.sprite = hideSprite;
             }
         }
     }

@@ -6,7 +6,7 @@ public class ShowTileCard : MonoBehaviour
 {
     
     [SerializeField] private TMPro.TMP_Text _tileName;
-    [SerializeField] private TMPro.TMP_Text _tileDescription;
+    // [SerializeField] private TMPro.TMP_Text _tileDescription;
     [SerializeField] private GameObject businessModelParent;
     [Space]
     [SerializeField] private GameObject businessModelPrefab;
@@ -23,13 +23,14 @@ public class ShowTileCard : MonoBehaviour
             Destroy(child.gameObject);
         }
         _tileName.text = tile.Name;
-        _tileDescription.text = tile.Description;
+        // _tileDescription.text = tile.Description;
         
         BusinessModelSO[] businessModels = _manageBusinessModels.GetBusinessModelsIncludingTile(tile);
         foreach (var businessModel in businessModels)
         {
             GameObject businessModelCard = Instantiate(businessModelPrefab, businessModelParent.transform);
-            businessModelCard.GetComponent<TMP_Text>().text = businessModel.Name;
+            businessModelCard.GetComponentInChildren<TMP_Text>().text = businessModel.Name;
+            businessModelCard.GetComponentInChildren<BusinessModelUI>().businessModelSo = businessModel;
         }
     }
 }

@@ -43,27 +43,29 @@ public class TilePlacing : MonoBehaviour
 
             TileHolder tileHolder = hit.transform.gameObject.GetComponent<TileHolder>();
 
-            tileHolder.OnHover(_selectedTile);
+            // tileHolder.OnHover(_selectedTile);
 
             if (Input.GetMouseButtonDown(0))
             {
+                tileHolder.HideTooltip();
                 if (tileHolder.isEmpty())
                 {
                     isPlacing = false;
                     tileHolder.PlaceTile(_selectedTile);
                     _gridGenerator.CheckForBusinessModels();
                     StartCoroutine(EndTurn());
-
-                
-
-                };
+                }
+                else
+                {
+                    tileHolder.OnClicked();
+                }
             }
         }
     }
 
     private IEnumerator EndTurn()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         if (_gridGenerator.CheckIfMapComplete())
         {
             _resultsScreen.gameObject.SetActive(true);

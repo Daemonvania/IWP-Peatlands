@@ -1,4 +1,5 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -8,7 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMPro.TMP_Text currentPlayerText;
     
     [SerializeField] private GameObject tileSelectScreen;
-
+    private BusinessModelToolTip _businessModelToolTip;
     
     private ManageTurns _manageTurns;
     void Awake()
@@ -16,6 +17,7 @@ public class UIManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         _tilePlacing = player.GetComponent<TilePlacing>();
         _manageTurns = GetComponent<ManageTurns>();
+        _businessModelToolTip = FindFirstObjectByType<BusinessModelToolTip>(FindObjectsInactive.Include);
     }
 
     private void Start()
@@ -39,6 +41,8 @@ public class UIManager : MonoBehaviour
     private void OnTurnStarted(TileSO tile)
     {
         tileSelectScreen.SetActive(false);
+        _businessModelToolTip.HideToolTip();
+        
     }
     
     private void OnTurnEnded()
