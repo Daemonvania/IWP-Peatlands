@@ -28,10 +28,15 @@ public class PlayerCardManager : MonoBehaviour
     
     public void ReplaceTile(TileSO placedTile)
     {
-        if (handTiles.Contains(placedTile))
+        // if (handTiles.Contains(placedTile))
+        // {
+        //     DrawTile(); // Draw a new tile into the hand
+        //     handTiles.Remove(placedTile); // Remove the placed tile from hand
+        // }
+        handTiles.Clear();
+        for (int i = 0; i < 3; i++)
         {
-            DrawTile(); // Draw a new tile into the hand
-            handTiles.Remove(placedTile); // Remove the placed tile from hand
+            DrawTile();
         }
     }
 

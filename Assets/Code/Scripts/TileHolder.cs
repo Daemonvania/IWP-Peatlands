@@ -164,6 +164,11 @@ public class TileHolder : MonoBehaviour
 
                 foreach (var tileHolder in previousTileHolders)
                 {
+                    //todo rough
+                    if (tileHolder.currentTile.Name == "Peatland")
+                    {
+                        continue;
+                    }
                     tileHolder.isInBusinessModel = true;
                     Renderer renderer = tileHolder.GetComponentInChildren<Renderer>();
                     if (renderer != null)

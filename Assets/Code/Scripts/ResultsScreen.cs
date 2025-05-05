@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ResultsScreen : MonoBehaviour
@@ -24,5 +25,10 @@ public class ResultsScreen : MonoBehaviour
         
         financialSlider.value = Mathf.Clamp01(_manageCurrencies.GetMoney() / 1000f);
         envSlider.value = Mathf.Clamp01(_manageCurrencies.GetEnvironment() / 600f);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 0);
     }
 }

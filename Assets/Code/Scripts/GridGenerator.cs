@@ -67,7 +67,7 @@ public class GridGenerator : MonoBehaviour
                 }
             }
         }
-        if (PeatlandCount < 2)
+        if (PeatlandCount <= 2)
         {
             SpawnRandomTiles();
         }

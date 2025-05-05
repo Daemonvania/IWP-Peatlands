@@ -46,7 +46,9 @@ public class ShowTileCards : MonoBehaviour
         {
             if (_tiles.Length > i)
             {
+                Debug.Log(_tiles);
                 _tileCards[i].ShowCard(_tiles[i]);
+                ToggleCardVisibility(); 
             }
             else
             {

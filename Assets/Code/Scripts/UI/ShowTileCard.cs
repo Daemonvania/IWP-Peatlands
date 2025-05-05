@@ -12,7 +12,7 @@ public class ShowTileCard : MonoBehaviour
     [SerializeField] private GameObject businessModelPrefab;
     private ManageBusinessModels _manageBusinessModels;
 
-    private void Start()
+    private void Awake()
     {
         _manageBusinessModels = GameObject.FindGameObjectWithTag("BusinessModelManager").GetComponent<ManageBusinessModels>();
     }
