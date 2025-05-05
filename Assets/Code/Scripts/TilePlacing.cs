@@ -2,13 +2,13 @@ using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.WSA;
 
 public class TilePlacing : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
 
     bool isPlacing = false;
+    [HideInInspector] public bool isViewing = true;
     
     TileSO _selectedTile;
     
@@ -34,31 +34,33 @@ public class TilePlacing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isViewing) return;
         Vector3 mousePos = Input.mousePosition;
         Ray ray = _camera.ScreenPointToRay(mousePos);
+        if (!Physics.Raycast(ray, out RaycastHit hit)) return;
 
-        if (isPlacing)
+        TileHolder tileHolder = hit.transform.gameObject.GetComponent<TileHolder>();
+
+        if (Input.GetMouseButtonDown(0))
         {
-            if (!Physics.Raycast(ray, out RaycastHit hit)) return;
-
-            TileHolder tileHolder = hit.transform.gameObject.GetComponent<TileHolder>();
-
+        if (!tileHolder.isEmpty())
+        {
+            tileHolder.OnClicked();
+        }
+        
+        if (isPlacing) 
+        {
             // tileHolder.OnHover(_selectedTile);
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                tileHolder.HideTooltip();
                 if (tileHolder.isEmpty())
                 {
+                    tileHolder.HideTooltip();
+
                     isPlacing = false;
                     tileHolder.PlaceTile(_selectedTile);
                     _gridGenerator.CheckForBusinessModels();
                     StartCoroutine(EndTurn());
                 }
-                else
-                {
-                    tileHolder.OnClicked();
-                }
+             
             }
         }
     }
@@ -73,6 +75,8 @@ public class TilePlacing : MonoBehaviour
         }
         else
         {
+            isPlacing = false;
+            isViewing = false; 
             OnTurnEnded?.Invoke();
         }
     }
@@ -81,6 +85,7 @@ public class TilePlacing : MonoBehaviour
     {
         _selectedTile = tile;
         isPlacing = true;
+        isViewing = true;
         OnTurnStarted?.Invoke(tile);
     }
 

@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.WSA;
 
 public class ShowTileCards : MonoBehaviour
 {
@@ -64,11 +63,13 @@ public class ShowTileCards : MonoBehaviour
             {
                 _tileCards[i].gameObject.SetActive(false);
                 visibilityButtonImage.sprite = showSprite;
+                _tilePlacing.isViewing = true;
             }
             else
             {
                 _tileCards[i].gameObject.SetActive(true);
                 visibilityButtonImage.sprite = hideSprite;
+                _tilePlacing.isViewing = false;
             }
         }
     }
