@@ -43,6 +43,7 @@ public class TilePlacing : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+        if (tileHolder == null) return;
         if (!tileHolder.isEmpty())
         {
             tileHolder.OnClicked();

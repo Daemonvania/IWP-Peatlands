@@ -59,18 +59,20 @@ public class ShowTileCards : MonoBehaviour
     
     public void ToggleCardVisibility()
     {
+        Vector3 currentScale = visibilityButtonImage.transform.localScale;
+        visibilityButtonImage.transform.localScale = new Vector3(currentScale.x, -currentScale.y, currentScale.z);
+
         for (int i = 0; i < _tileCards.Length; i++)
         {
             if (_tileCards[i].gameObject.activeSelf)
             {
                 _tileCards[i].gameObject.SetActive(false);
-                visibilityButtonImage.sprite = showSprite;
                 _tilePlacing.isViewing = true;
             }
             else
             {
                 _tileCards[i].gameObject.SetActive(true);
-                visibilityButtonImage.sprite = hideSprite;
+                
                 _tilePlacing.isViewing = false;
             }
         }

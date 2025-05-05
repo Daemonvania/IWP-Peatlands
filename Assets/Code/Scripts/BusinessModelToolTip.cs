@@ -34,7 +34,7 @@ public class BusinessModelToolTip : MonoBehaviour
         }
         modelName.text = businessModel.Name;
 
-        string stats = "Fin: " + businessModel.MoneyScore + " Env: " + businessModel.EcoScore;
+        string stats = "Fin:" + businessModel.MoneyScore + " Env:" + businessModel.EcoScore;
         modelStats.text = stats;
         // _tileDescription.text = businessModel.Description;
         
@@ -67,7 +67,14 @@ public class BusinessModelToolTip : MonoBehaviour
                 uiCamera,
                 out localPoint
             );
-            localPoint.x += 150f;
+            if (Input.mousePosition.x > Screen.width - 500)
+            {
+                localPoint.x -= 150f;
+            }
+            else
+            {
+                localPoint.x += 150f;
+            }
 
             transform.localPosition = localPoint;
         }
