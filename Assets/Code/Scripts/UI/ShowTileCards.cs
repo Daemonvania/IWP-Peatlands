@@ -15,6 +15,8 @@ public class ShowTileCards : MonoBehaviour
     [SerializeField] private Sprite showSprite;
     [SerializeField] private Sprite hideSprite;
     
+    [SerializeField] ShowTileCard placingTileCard;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -32,6 +34,9 @@ public class ShowTileCards : MonoBehaviour
         }
 
         _tilePlacing.SelectTile(_tiles[index]);
+        
+        placingTileCard.gameObject.SetActive(true);
+        placingTileCard.ShowCard(_tiles[index]);
     }
 
     public void SetHandTiles(TileSO[] tiles)
@@ -46,6 +51,7 @@ public class ShowTileCards : MonoBehaviour
         {
             if (_tiles.Length > i)
             {
+                placingTileCard.gameObject.SetActive(false);
                 Debug.Log(_tiles);
                 _tileCards[i].ShowCard(_tiles[i]);
                 ToggleCardVisibility(); 

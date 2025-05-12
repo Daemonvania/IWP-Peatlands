@@ -14,11 +14,22 @@ public class TileTooltip : MonoBehaviour
     public void ShowToolTip(TileSO tile)
     {
         peatlandName.text = tile.Name;
+        DisplayToolTip();
+
+    }
+    
+    public void ShowToolTip(BusinessModelSO businessModel)
+    {
+        peatlandName.text = businessModel.Name;
+        DisplayToolTip();
+    }
+
+    private void DisplayToolTip()
+    {
         gameObject.SetActive(true);
         MoveToCursor();
         StartCoroutine(HideTooltipAfterDelay(0.6f));
     }
-    
     private IEnumerator HideTooltipAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);

@@ -16,7 +16,7 @@ public class TileHolder : MonoBehaviour
    private ManageBusinessModels _manageBusinessModels;
    private ManageCurrencies _manageCurrencies;
    
-   private bool isInBusinessModel = false;
+   private BusinessModelSO currentBusinessModel = null;
    
    public TileSO getTile()
    {
@@ -38,7 +38,14 @@ public class TileHolder : MonoBehaviour
 
    public void OnClicked()
     {
-       _tileTooltip.ShowToolTip(currentTile);
+        if (currentBusinessModel == null)
+        {
+            _tileTooltip.ShowToolTip(currentTile);
+        }
+        else 
+        {
+            _tileTooltip.ShowToolTip(currentBusinessModel);
+        }
     }
 
     public void HideTooltip()
@@ -67,7 +74,7 @@ public class TileHolder : MonoBehaviour
 
     public void CheckForModel()
     {
-        if (currentTile == null || isInBusinessModel)
+        if (currentTile == null || currentBusinessModel != null)
         {
             return;
         }
@@ -112,7 +119,7 @@ public class TileHolder : MonoBehaviour
                 Debug.DrawRay(transform.position, direction * rayLength, Color.red, 1f);
                 
                 TileHolder hitTileHolder = hit.transform.GetComponent<TileHolder>();
-                if (hitTileHolder.currentTile == null || hitTileHolder.isInBusinessModel)
+                if (hitTileHolder.currentTile == null || hitTileHolder.currentBusinessModel != null)
                 {
                     continue;
                 }
@@ -169,7 +176,7 @@ public class TileHolder : MonoBehaviour
                     {
                         continue;
                     }
-                    tileHolder.isInBusinessModel = true;
+                    tileHolder.currentBusinessModel = businessModel;
                     Renderer renderer = tileHolder.GetComponentInChildren<Renderer>();
                     if (renderer != null)
                     {
