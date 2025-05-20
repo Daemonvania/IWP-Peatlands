@@ -56,16 +56,16 @@ public class UIManager : MonoBehaviour
         switch (_manageTurns.currentPlayerIndex)
         {
             case 0:
-                playername = "Farmer";
+                playername = "<sprite=5> Farmer";
                 break;
             case 1:
-                playername = "Policymaker";
+                playername = "<sprite=2> Policymaker";
                 break;
             case 2:
-                playername = "Chief Of Industry";
+                playername = "<sprite=4> Chief Of Industry";
                 break;
             case 3:
-                playername = "Banker";
+                playername = "<sprite=3> Banker";
                 break;
             default:
                 playername = "Unknown";

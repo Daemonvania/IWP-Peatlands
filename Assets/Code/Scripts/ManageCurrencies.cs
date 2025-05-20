@@ -47,7 +47,7 @@ public class ManageCurrencies : MonoBehaviour
     
     public void UpdateUI()
     {
-        moneyText.text = "Money: " + _moneyScore;
-        envText.text = "Env: " + _envScore;
+        moneyText.text = +_moneyScore + "<sprite=0>";
+        envText.text = _envScore + "<sprite=1>";
     }
 }

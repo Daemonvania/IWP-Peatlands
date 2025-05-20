@@ -34,7 +34,7 @@ public class BusinessModelToolTip : MonoBehaviour
         }
         modelName.text = businessModel.Name;
 
-        string stats = "Fin:" + businessModel.MoneyScore + " Env:" + businessModel.EcoScore;
+        string stats = businessModel.MoneyScore + "<sprite=0>" +" "+ businessModel.EcoScore + "<sprite=1>";
         modelStats.text = stats;
         // _tileDescription.text = businessModel.Description;
         
