@@ -183,15 +183,13 @@ public class TileHolder : MonoBehaviour
                         // Create a black material dynamically
                         // Material blackMaterial = new Material(Shader.Find("Standard"));
                         // blackMaterial.color = Color.black;
-
-                        // Replace each material in the array with the black material
+                        
                         Material[] materials = renderer.materials;
                         for (int i = 0; i < materials.Length; i++)
                         {
                             materials[i] = completedMat;
                         }
-
-                        // Assign the updated materials array back to the renderer
+                        
                         renderer.materials = materials;
                     }
                 }

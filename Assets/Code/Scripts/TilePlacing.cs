@@ -17,7 +17,6 @@ public class TilePlacing : MonoBehaviour
     
     private GridGenerator _gridGenerator;
     
-    
     public event Action<TileSO> OnTurnStarted;
     public event Action OnTurnEnded;
 
