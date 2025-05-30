@@ -264,6 +264,104 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &2710863965755451687
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3062194722878344895}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.1457798
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.1457798
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.1457798
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.011528591
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00026999533
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.00008243546
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710707
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00000011937159
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.70710653
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00000019304936
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+      propertyPath: m_Name
+      value: Peatland_Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666261585234168772, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666261585234168772, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666261585234168772, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8946660040297601765, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8946660040297601765, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8946660040297601765, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+--- !u!4 &2455681256243842764 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+  m_PrefabInstance: {fileID: 2710863965755451687}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3311729697917774164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -337,6 +435,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 44660cac59bbdbf4e853e31697e3ad90, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4848923129876402913}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 44660cac59bbdbf4e853e31697e3ad90, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2455681256243842764}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 44660cac59bbdbf4e853e31697e3ad90, type: 3}
       insertIndex: -1
@@ -427,6 +528,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 95f3662610331d2498beb918ef2eab2a, type: 3}
       propertyPath: m_Name
       value: Peatland 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 95f3662610331d2498beb918ef2eab2a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
