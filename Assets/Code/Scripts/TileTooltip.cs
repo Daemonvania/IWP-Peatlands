@@ -7,6 +7,8 @@ public class TileTooltip : MonoBehaviour
 {
     [SerializeField] private TMP_Text peatlandName;
     [SerializeField] private Camera uiCamera;
+    
+    private Coroutine hideTooltipCoroutine;
     private void Start()
     {
         gameObject.SetActive(false);
@@ -28,7 +30,11 @@ public class TileTooltip : MonoBehaviour
     {
         gameObject.SetActive(true);
         MoveToCursor();
-        StartCoroutine(HideTooltipAfterDelay(0.6f));
+        if (hideTooltipCoroutine != null)
+        {
+            StopCoroutine(hideTooltipCoroutine);
+        }
+        hideTooltipCoroutine = StartCoroutine(HideTooltipAfterDelay(0.05f));
     }
     private IEnumerator HideTooltipAfterDelay(float delay)
     {

@@ -39,7 +39,7 @@ public class ManageTurns : MonoBehaviour
 
     private void OnTurnStarted(TileSO tile)
     {
-        players[currentPlayerIndex].ReplaceTile(tile);
+        players[currentPlayerIndex].ClearHandAndDrawTiles(/*tile*/);
     }
     private void OnTurnEnded()
     {
