@@ -355,6 +355,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cb2c67a05b1deb479c06211544e8fe4, type: 3}
+--- !u!23 &553793836626843384 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1129496810705857465, guid: 3cb2c67a05b1deb479c06211544e8fe4, type: 3}
+  m_PrefabInstance: {fileID: 577516086434381121}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1119433332699159210 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3cb2c67a05b1deb479c06211544e8fe4, type: 3}
@@ -536,6 +541,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16abd95b5d440dc4eb750d72288fb2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactingMat: {fileID: 2100000, guid: 46648aa2071585741a71c78acf0f13f9, type: 2}
+  completedMat: {fileID: 2100000, guid: 90a9c15d0f17ace44af3de2077954daa, type: 2}
+  meshRenderer: {fileID: 553793836626843384}
 --- !u!4 &3062194722878344895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 44660cac59bbdbf4e853e31697e3ad90, type: 3}

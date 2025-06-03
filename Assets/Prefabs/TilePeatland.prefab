@@ -362,6 +362,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
   m_PrefabInstance: {fileID: 2710863965755451687}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &3040540215535829662 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1129496810705857465, guid: ad79fdfae6667be4e908aaa9aa3fe991, type: 3}
+  m_PrefabInstance: {fileID: 2710863965755451687}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3311729697917774164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -460,6 +465,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16abd95b5d440dc4eb750d72288fb2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactingMat: {fileID: 2100000, guid: 46648aa2071585741a71c78acf0f13f9, type: 2}
+  completedMat: {fileID: 2100000, guid: 90a9c15d0f17ace44af3de2077954daa, type: 2}
+  meshRenderer: {fileID: 3040540215535829662}
 --- !u!4 &3062194722878344895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 44660cac59bbdbf4e853e31697e3ad90, type: 3}

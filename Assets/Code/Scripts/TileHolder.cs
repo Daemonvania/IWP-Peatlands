@@ -177,21 +177,7 @@ public class TileHolder : MonoBehaviour
                         continue;
                     }
                     tileHolder.currentBusinessModel = businessModel;
-                    Renderer renderer = tileHolder.GetComponentInChildren<Renderer>();
-                    if (renderer != null)
-                    {
-                        // Create a black material dynamically
-                        // Material blackMaterial = new Material(Shader.Find("Standard"));
-                        // blackMaterial.color = Color.black;
-                        
-                        Material[] materials = renderer.materials;
-                        for (int i = 0; i < materials.Length; i++)
-                        {
-                            materials[i] = completedMat;
-                        }
-                        
-                        renderer.materials = materials;
-                    }
+                    tileHolder.GetComponentInChildren<Tile>().SetCompletedMaterial();
                 }
                 
                 break; // Exit the loop as a match is found
@@ -200,13 +186,13 @@ public class TileHolder : MonoBehaviour
         //no business model complete, but business model possible
         if (!matchFound)
         {
+            Debug.Log("No complete business model found, but tiles are connected.");
             CastRays(previousTileHolders);
             foreach (var tileHolder in previousTileHolders)
             {
-                if (tileHolder.transform.position.y <= 0)
+                if (tileHolder.currentBusinessModel == null)
                 {
-                    tileHolder.transform.position = new Vector3(tileHolder.transform.position.x,
-                        tileHolder.transform.position.y + 0.22f, tileHolder.transform.position.z);
+                    tileHolder.GetComponentInChildren<Tile>().SetInteractingMaterial();
                 }
             }
         }
