@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water_Shader
+  m_Name: Complete
   m_Shader: {fileID: -6465566751694194690, guid: 1e6dd58ee750d6d40a9b4c5d02c2faa8, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -110,7 +110,7 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _FlowSpeed: 0.5
+    - _FlowSpeed: 0.25
     - _FoamDensity: 5
     - _FoamSpeed: 0.2
     - _FoamThickness: 4
@@ -133,10 +133,10 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.18836774, g: 0.4811321, b: 0.19440408, a: 1}
+    - _Color: {r: 0.27100393, g: 0.6603774, b: 0.2813872, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlowDirection: {r: 1, g: 0, b: 0, a: 0}
-    - _FoamColor: {r: 0.8349056, g: 0.88237023, b: 1, a: 0.1333333}
+    - _FoamColor: {r: 14.0192995, g: 118.03536, b: 0, a: 0.1333333}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

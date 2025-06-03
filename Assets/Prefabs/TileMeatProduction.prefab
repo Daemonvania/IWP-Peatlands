@@ -438,6 +438,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16abd95b5d440dc4eb750d72288fb2e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactingMat: {fileID: 2100000, guid: 46648aa2071585741a71c78acf0f13f9, type: 2}
+  completedMat: {fileID: 2100000, guid: 90a9c15d0f17ace44af3de2077954daa, type: 2}
+  meshRenderer: {fileID: 4064923058548949053}
 --- !u!4 &3062194722878344895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 44660cac59bbdbf4e853e31697e3ad90, type: 3}
@@ -519,6 +522,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Meat_Production_Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 1129496810705857465, guid: 76f4dd3f7aa64a847aa91b30622ff08e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 90a9c15d0f17ace44af3de2077954daa, type: 2}
     - target: {fileID: 5666261585234168772, guid: 76f4dd3f7aa64a847aa91b30622ff08e, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -539,6 +546,11 @@ PrefabInstance:
 --- !u!4 &3481282358138145903 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 76f4dd3f7aa64a847aa91b30622ff08e, type: 3}
+  m_PrefabInstance: {fileID: 4018695901162105732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4064923058548949053 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1129496810705857465, guid: 76f4dd3f7aa64a847aa91b30622ff08e, type: 3}
   m_PrefabInstance: {fileID: 4018695901162105732}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7926025933635598504
