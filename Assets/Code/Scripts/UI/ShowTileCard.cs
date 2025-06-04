@@ -1,11 +1,13 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShowTileCard : MonoBehaviour
 {
     
     [SerializeField] private TMPro.TMP_Text _tileName;
+    [SerializeField] private Image _tileIcon;
     // [SerializeField] private TMPro.TMP_Text _tileDescription;
     [SerializeField] private GameObject businessModelParent;
     [Space]
@@ -15,6 +17,7 @@ public class ShowTileCard : MonoBehaviour
     private void Awake()
     {
         _manageBusinessModels = GameObject.FindGameObjectWithTag("BusinessModelManager").GetComponent<ManageBusinessModels>();
+        _tileIcon.preserveAspect = true; 
     }
 
     public void ShowCard(TileSO tile)
@@ -23,6 +26,11 @@ public class ShowTileCard : MonoBehaviour
             Destroy(child.gameObject);
         }
         _tileName.text = tile.Name;
+        if (tile.icon)
+        {
+            _tileIcon.sprite = tile.icon;
+        }
+        
         // _tileDescription.text = tile.Description;
         
         BusinessModelSO[] businessModels = _manageBusinessModels.GetBusinessModelsIncludingTile(tile);

@@ -15,4 +15,4 @@ MonoBehaviour:
   Name: Harvester
   Description: A harvester
   asset: {fileID: 2392758633659962373, guid: 0d203a2cb5c5d66449ffdc5b79ce4394, type: 3}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 87ef3dd125ce63c4eb2b2510d7ecb34a, type: 3}

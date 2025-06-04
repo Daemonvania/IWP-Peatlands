@@ -1,11 +1,13 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class BusinessModelToolTip : MonoBehaviour
 {
     [SerializeField] private TMP_Text modelName;
     [SerializeField] private TMP_Text modelStats;
+    [SerializeField] private Image modelIcon;
     
     // [SerializeField] private TMPro.TMP_Text _modelDescription;
      [SerializeField] private GameObject tileParent;
@@ -26,6 +28,7 @@ public class BusinessModelToolTip : MonoBehaviour
     private void Start()
     {
          gameObject.SetActive(false);
+         modelIcon.preserveAspect = true;
     }
     public void ShowToolTip(BusinessModelSO businessModel)
     {
@@ -33,16 +36,27 @@ public class BusinessModelToolTip : MonoBehaviour
             Destroy(child.gameObject);
         }
         modelName.text = businessModel.Name;
-
         string stats = businessModel.MoneyScore + "<sprite=0>" +" "+ businessModel.EcoScore + "<sprite=1>";
         modelStats.text = stats;
+        if (businessModel.Icon != null)
+            modelIcon.sprite = businessModel.Icon;
+     
         // _tileDescription.text = businessModel.Description;
-        
+
+        ShowTiles(businessModel);
+    }
+
+    private void ShowTiles(BusinessModelSO businessModel)
+    {
         foreach (var tile in businessModel.tilesNeeded)
         {
             GameObject tileCard = Instantiate(tilePrefabUI, tileParent.transform);
             Debug.Log(tileCard);
             tileCard.GetComponentInChildren<TMP_Text>().text = tile.Name;
+            if (tile.icon != null)
+            {
+                tileCard.GetComponentInChildren<Image>().sprite = tile.icon;
+            }
         }
         gameObject.SetActive(true);
     }

@@ -15,4 +15,4 @@ MonoBehaviour:
   Name: Plant Processor
   Description: 
   asset: {fileID: 2392758633659962373, guid: 103532c6fa47f29479ce6b0e7d7786c4, type: 3}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 37ebc1d4b4f60a44aba2b230a79936b1, type: 3}

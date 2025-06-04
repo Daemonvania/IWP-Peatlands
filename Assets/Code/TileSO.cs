@@ -9,5 +9,5 @@ public class TileSO : ScriptableObject
     
     [SerializeField] public GameObject asset;
     
-    [SerializeField] public Image icon;
+    [SerializeField] public Sprite icon;
 }

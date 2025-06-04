@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TileTooltip : MonoBehaviour
 {
-    [SerializeField] private TMP_Text peatlandName;
+    [SerializeField] private TMP_Text Name;
+    [SerializeField] private Image Icon;
     [SerializeField] private Camera uiCamera;
     
     private Coroutine hideTooltipCoroutine;
@@ -15,14 +17,22 @@ public class TileTooltip : MonoBehaviour
     }
     public void ShowToolTip(TileSO tile)
     {
-        peatlandName.text = tile.Name;
+        Name.text = tile.Name;
+        if (tile.icon)
+        {
+            Icon.sprite = tile.icon;
+        }
         DisplayToolTip();
 
     }
     
     public void ShowToolTip(BusinessModelSO businessModel)
     {
-        peatlandName.text = businessModel.Name;
+        Name.text = businessModel.Name;
+        if (businessModel.Icon)
+        {
+            Icon.sprite = businessModel.Icon;
+        }
         DisplayToolTip();
     }
 

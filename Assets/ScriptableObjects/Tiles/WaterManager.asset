@@ -15,4 +15,4 @@ MonoBehaviour:
   Name: Water Manager
   Description: 
   asset: {fileID: 2392758633659962373, guid: 1c2452513e618b54d89630cb6a33eecd, type: 3}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 9ee76e50fd83cc2468e9a42425fb2893, type: 3}
