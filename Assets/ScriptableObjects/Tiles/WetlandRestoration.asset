@@ -15,4 +15,4 @@ MonoBehaviour:
   Name: Wetland Restoration
   Description: 
   asset: {fileID: 2392758633659962373, guid: 9395a1655b72f7f4baf4a76ad7d3c784, type: 3}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 5f723638fb7ac2b42a5e2f88ae12f917, type: 3}

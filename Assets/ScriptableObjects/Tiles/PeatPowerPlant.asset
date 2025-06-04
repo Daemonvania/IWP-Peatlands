@@ -15,4 +15,4 @@ MonoBehaviour:
   Name: Peat Power Plant
   Description: 
   asset: {fileID: 2392758633659962373, guid: d4a917fa2833ecf4b9205cf30ff848d4, type: 3}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 55b29511f272f574e985f4315e435118, type: 3}

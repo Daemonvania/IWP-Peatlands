@@ -15,4 +15,4 @@ MonoBehaviour:
   Name: Carbon Storage
   Description: 
   asset: {fileID: 2392758633659962373, guid: 665b956f80491a048af828d6af802f4f, type: 3}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 22ccf934c2ddea94da4a627ee54f537c, type: 3}

@@ -19,5 +19,5 @@ MonoBehaviour:
   Name: Wild Plant Harvesting
   Description: 
   Icon: {fileID: 21300000, guid: f2a4e7380fd161c4faf947e6b9228de2, type: 3}
-  MoneyScore: 30
-  EcoScore: 70
+  MoneyScore: 100
+  EcoScore: 100

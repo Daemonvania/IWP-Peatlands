@@ -19,5 +19,5 @@ MonoBehaviour:
   Name: Moss Farm
   Description: 
   Icon: {fileID: 21300000, guid: 14b11bd49749e2a4caa57f1dcd89becd, type: 3}
-  MoneyScore: 50
+  MoneyScore: 100
   EcoScore: 100

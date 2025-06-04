@@ -19,5 +19,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 70e2212fb8bf75342a3472184d90f682, type: 2}
   Name: Peat Harvesting
   Description: 
-  MoneyScore: 500
+  Icon: {fileID: 21300000, guid: b40459817c1eb9946abf03250f8b0761, type: 3}
+  MoneyScore: 300
   EcoScore: -500
