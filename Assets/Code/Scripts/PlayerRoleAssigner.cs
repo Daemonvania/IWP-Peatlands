@@ -14,10 +14,11 @@ public class PlayerRoleAssigner : MonoBehaviour
     public GameObject roleAssignmentPanel;
 
     private string[] roles = { "Farmer", "Policymaker", "Chief of Industry", "Banker" };
-    private List<string> playerNames = new List<string>();
+    public List<string> playerNames = new List<string>();
 
     private void Start()
     {
+        DontDestroyOnLoad(gameObject);
         // Initial UI setup
         nameInputPanel.SetActive(true);
         roleAssignmentPanel.SetActive(false);
@@ -56,7 +57,7 @@ public class PlayerRoleAssigner : MonoBehaviour
         }
 
         // Display results
-        string resultString = "Roles Assigned:\n";
+        string resultString = "\n";
         foreach (var pair in assignedRoles)
         {
             resultString += $"{pair.Key}: {pair.Value}\n";

@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject tileSelectScreen;
     private BusinessModelToolTip _businessModelToolTip;
     
+    private PlayerRoleAssigner _playerRoleAssigner;
+    
     private ManageTurns _manageTurns;
     void Awake()
     {
@@ -18,6 +20,7 @@ public class UIManager : MonoBehaviour
         _tilePlacing = player.GetComponent<TilePlacing>();
         _manageTurns = GetComponent<ManageTurns>();
         _businessModelToolTip = FindFirstObjectByType<BusinessModelToolTip>(FindObjectsInactive.Include);
+        _playerRoleAssigner = GameObject.FindWithTag("PlayerNames").GetComponent<PlayerRoleAssigner>();
     }
 
     private void Start()
@@ -56,16 +59,16 @@ public class UIManager : MonoBehaviour
         switch (_manageTurns.currentPlayerIndex)
         {
             case 0:
-                playername = "<sprite=5> Farmer";
+                playername =  _playerRoleAssigner.playerNames[0] +": <sprite=5> Farmer";
                 break;
             case 1:
-                playername = "<sprite=2> Policymaker";
+                playername =_playerRoleAssigner.playerNames[1] +": <sprite=2> Policymaker";
                 break;
             case 2:
-                playername = "<sprite=4> Chief Of Industry";
+                playername =_playerRoleAssigner.playerNames[2] +": <sprite=4> Chief Of Industry";
                 break;
             case 3:
-                playername = "<sprite=3> Banker";
+                playername =_playerRoleAssigner.playerNames[3] +": <sprite=3> Banker";
                 break;
             default:
                 playername = "Unknown";
@@ -73,7 +76,7 @@ public class UIManager : MonoBehaviour
         }
        
         int currentPlayerShow = _manageTurns.currentPlayerIndex + 1;
-        currentPlayerText.text = "Player " + currentPlayerShow + ": " + playername;
+        currentPlayerText.text = playername;
         tileSelectScreen.SetActive(true);
     }
 }

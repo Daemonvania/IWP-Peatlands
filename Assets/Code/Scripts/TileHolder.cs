@@ -196,7 +196,14 @@ public class TileHolder : MonoBehaviour
                 if (tileHolder.currentBusinessModel == null)
                 {
                     tileHolder.GetComponentInChildren<Tile>().SetInteractingMaterial();
-                    // tileHolder.tileGameObject.transform.DOPunchPosition(new Vector3(0, 0.1f, 0), 0.15f, 5, 0.25f);
+
+                    if (tileHolder.tileGameObject.transform.position.y < 1)
+                    {
+                        tileHolder.tileGameObject.transform
+                            .DOMove(
+                                new Vector3(tileHolder.transform.position.x, tileHolder.transform.position.y + 0.1f,
+                                    tileHolder.transform.position.z), 0.15f).SetEase(Ease.Linear);
+                    }
                 }
             }
         }
