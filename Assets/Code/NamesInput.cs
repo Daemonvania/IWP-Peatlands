@@ -56,7 +56,7 @@ public class PlayerRoleAssigner : MonoBehaviour
         }
 
         // Display results
-        string resultString = "Roles Assigned:\n";
+        string resultString = "\n";
         foreach (var pair in assignedRoles)
         {
             resultString += $"{pair.Key}: {pair.Value}\n";
