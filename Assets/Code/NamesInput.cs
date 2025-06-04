@@ -2,13 +2,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-
+using TMPro;
 public class PlayerRoleAssigner : MonoBehaviour
 {
     [Header("UI Elements")]
-    public InputField[] nameInputs; // Drag 4 InputFields here in Inspector
+    public  TMP_InputField[] inputFields; // Drag 4 InputFields here in Inspector
     public Button continueButton;
-    public Text resultText;
+    public TMP_Text resultText;
     public Button continueToSceneButton;
     public GameObject nameInputPanel;
     public GameObject roleAssignmentPanel;
@@ -29,7 +29,7 @@ public class PlayerRoleAssigner : MonoBehaviour
     {
         // Collect player names
         playerNames.Clear();
-        foreach (InputField input in nameInputs)
+        foreach (TMP_InputField input in inputFields)
         {
             if (!string.IsNullOrWhiteSpace(input.text))
             {
@@ -44,7 +44,7 @@ public class PlayerRoleAssigner : MonoBehaviour
         }
 
         // Assign roles randomly
-        List<string> availableRoles = new List<string>(roles)
+        List<string> availableRoles = new List<string>(roles);
         Dictionary<string, string> assignedRoles = new Dictionary<string, string>();
 
         System.Random rand = new System.Random();

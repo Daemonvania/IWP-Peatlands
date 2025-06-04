@@ -2535,10 +2535,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 295a43c718d53f349a1374b4cb227a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameInputs:
-  - {fileID: 0}
+  inputFields:
+  - {fileID: 825278889}
+  - {fileID: 47317128}
+  - {fileID: 1640198213}
+  - {fileID: 1241271136}
   continueButton: {fileID: 1387886899}
-  resultText: {fileID: 0}
+  resultText: {fileID: 1350453087}
   continueToSceneButton: {fileID: 169669932}
   nameInputPanel: {fileID: 787682823}
   roleAssignmentPanel: {fileID: 1733191399}
