@@ -11,6 +11,8 @@ public class ResultsScreen : MonoBehaviour
     [SerializeField] Slider financialSlider;
     [SerializeField] Slider envSlider;
     
+    [SerializeField] private GameObject resultsPanel;
+    
     private ManageCurrencies _manageCurrencies;
     
     private void Awake()
@@ -31,4 +33,17 @@ public class ResultsScreen : MonoBehaviour
     {
         SceneManager.LoadScene(sceneBuildIndex: 0);
     }
+    
+    public void ToggleVisibility()
+    {
+        if (resultsPanel.activeSelf)
+        {
+            resultsPanel.SetActive(false);
+        }
+        else
+        {
+            resultsPanel.SetActive(true);
+        }
+    }
+    
 }

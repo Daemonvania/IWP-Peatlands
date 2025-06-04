@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -68,7 +69,8 @@ public class TileHolder : MonoBehaviour
         emptyTile.SetActive(false);
         tileGameObject = Instantiate(tileSo.asset, transform.position, Quaternion.identity);
         tileGameObject.transform.SetParent(transform);
-        
+        tileGameObject.transform.DOPunchScale(new Vector3(10f, 10f, 10f), 0.3f, 5, 0.25f);
+        Debug.Log("Placed tile: " + tileSo.Name);
         // CheckForModel();
     }
 
@@ -177,6 +179,7 @@ public class TileHolder : MonoBehaviour
                         continue;
                     }
                     tileHolder.currentBusinessModel = businessModel;
+                    tileHolder.tileGameObject.transform.DOPunchPosition(new Vector3(0, 0.5f, 0), 0.6f, 3, 0.25f);
                     tileHolder.GetComponentInChildren<Tile>().SetCompletedMaterial();
                 }
                 
@@ -193,6 +196,7 @@ public class TileHolder : MonoBehaviour
                 if (tileHolder.currentBusinessModel == null)
                 {
                     tileHolder.GetComponentInChildren<Tile>().SetInteractingMaterial();
+                    // tileHolder.tileGameObject.transform.DOPunchPosition(new Vector3(0, 0.1f, 0), 0.15f, 5, 0.25f);
                 }
             }
         }
