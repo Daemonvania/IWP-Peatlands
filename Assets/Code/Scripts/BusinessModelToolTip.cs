@@ -72,25 +72,43 @@ public class BusinessModelToolTip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.activeSelf) // Only update position if the tooltip is active
-        {
-            Vector2 localPoint;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                transform.parent.GetComponent<RectTransform>(),
-                Input.mousePosition,
-                uiCamera,
-                out localPoint
-            );
-            if (Input.mousePosition.x > Screen.width - 500)
-            {
-                localPoint.x -= 150f;
-            }
-            else
-            {
-                localPoint.x += 150f;
-            }
+        if (!gameObject.activeSelf) return;
 
-            transform.localPosition = localPoint;
+        Vector2 localPoint;
+        RectTransform canvasRect = transform.parent.GetComponent<RectTransform>();
+        RectTransform tooltipRect = GetComponent<RectTransform>();
+
+        // Convert screen point to local point in the parent canvas
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            canvasRect,
+            Input.mousePosition,
+            uiCamera,
+            out localPoint
+        );
+
+        // Offset to the side of the cursor
+        if (Input.mousePosition.x > Screen.width - 500)
+        {
+            localPoint.x -= 150f;
         }
+        else
+        {
+            localPoint.x += 150f;
+        }
+
+        // Clamp localPoint to ensure the tooltip stays inside the screen bounds
+        Vector2 halfSize = tooltipRect.rect.size * 0.5f;
+
+        // Calculate bounds in local canvas space
+        float minX = -canvasRect.rect.width / 2 + halfSize.x;
+        float maxX = canvasRect.rect.width / 2 - halfSize.x;
+        float minY = -canvasRect.rect.height / 2 + halfSize.y;
+        float maxY = canvasRect.rect.height / 2 - halfSize.y;
+
+        localPoint.x = Mathf.Clamp(localPoint.x, minX, maxX);
+        localPoint.y = Mathf.Clamp(localPoint.y, minY, maxY);
+
+        transform.localPosition = localPoint;
     }
+
 }

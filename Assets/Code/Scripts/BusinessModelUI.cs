@@ -6,7 +6,7 @@ public class BusinessModelUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
 {
     private BusinessModelToolTip _businessModelToolTip;
     
-    [HideInInspector] public BusinessModelSO businessModelSo;
+     public BusinessModelSO businessModelSo;
     private void Awake()
     {
         _businessModelToolTip = FindFirstObjectByType<BusinessModelToolTip>(FindObjectsInactive.Include);
