@@ -16,6 +16,7 @@ public class PlayerRoleAssigner : MonoBehaviour
     private string[] roles = { "Farmer", "Policymaker", "Chief of Industry", "Banker" };
     public List<string> playerNames = new List<string>();
 
+    bool rolesAssigned = false;
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -28,6 +29,14 @@ public class PlayerRoleAssigner : MonoBehaviour
 
     public void OnContinueButtonClicked()
     {
+        if (rolesAssigned)
+        {
+            Debug.Log("Roles already assigned, cannot continue.");
+            return;
+        }
+        rolesAssigned = true;
+        continueButton.onClick.RemoveListener(OnContinueButtonClicked);
+        Debug.Log("Naming");
         // Collect player names
         playerNames.Clear();
         foreach (TMP_InputField input in inputFields)
@@ -43,19 +52,24 @@ public class PlayerRoleAssigner : MonoBehaviour
             resultText.text = "Please enter names for all 4 players!";
             return;
         }
-
-        // Assign roles randomly
         List<string> availableRoles = new List<string>(roles);
         Dictionary<string, string> assignedRoles = new Dictionary<string, string>();
 
-        System.Random rand = new System.Random();
-        foreach (string player in playerNames)
-        {
-            int index = rand.Next(availableRoles.Count);
-            assignedRoles[player] = availableRoles[index];
-            availableRoles.RemoveAt(index);
-        }
+        // // Assign roles randomly
+        //
+        // System.Random rand = new System.Random();
+        // foreach (string player in playerNames)
+        // {
+        //     int index = rand.Next(availableRoles.Count);
+        //     assignedRoles[player] = availableRoles[index];
+        //     availableRoles.RemoveAt(index);
+        // }
 
+        for (int i = 0; i < playerNames.Count; i++)
+        {
+            assignedRoles[playerNames[i]] = availableRoles[i];
+        }
+        
         // Display results
         string resultString = "\n";
         foreach (var pair in assignedRoles)
