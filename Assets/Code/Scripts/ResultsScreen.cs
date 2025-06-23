@@ -31,7 +31,12 @@ public class ResultsScreen : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(sceneBuildIndex: 0);
+        SceneManager.LoadScene(sceneBuildIndex: 1);
+    }
+
+    public void EndGame()
+    {
+        Application.Quit();
     }
     
     public void ToggleVisibility()

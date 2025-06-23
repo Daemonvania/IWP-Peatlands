@@ -365,9 +365,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f22d07391092b044ca21f0e43b0277d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hanzeLogo: {fileID: 1741322661}
-  bufferLogo: {fileID: 2005522669}
-  hanzeFade: {fileID: 0}
 --- !u!4 &1512585373
 Transform:
   m_ObjectHideFlags: 0

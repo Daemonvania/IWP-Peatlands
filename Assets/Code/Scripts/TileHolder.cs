@@ -18,6 +18,10 @@ public class TileHolder : MonoBehaviour
    private ManageCurrencies _manageCurrencies;
    
    private BusinessModelSO currentBusinessModel = null;
+
+
+    //Setting the sound clip variable
+    //[SerializeField] private AudioClip placeTileSound;
    
    public TileSO getTile()
    {
@@ -72,6 +76,10 @@ public class TileHolder : MonoBehaviour
         tileGameObject.transform.DOPunchScale(new Vector3(10f, 10f, 10f), 0.3f, 5, 0.25f);
         Debug.Log("Placed tile: " + tileSo.Name);
         // CheckForModel();
+
+        //Play the sound when place tile is called
+
+        //SoundFXManager.Instance.PlaySoundFXClip(placeTileSound, transform, 1f);
     }
 
     public void CheckForModel()
