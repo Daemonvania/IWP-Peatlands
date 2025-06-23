@@ -345,6 +345,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1512585373}
   - component: {fileID: 1512585372}
+  - component: {fileID: 1512585374}
   m_Layer: 0
   m_Name: StartGameController
   m_TagString: Untagged
@@ -382,6 +383,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1512585374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512585371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b0eb12cf245db34f9e2fc143e5c8a2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hanzeLogo: {fileID: 1741322661}
+  bufferLogo: {fileID: 2005522669}
+  delay: 3
 --- !u!1 &1622496049
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,15 +513,15 @@ GameObject:
   - component: {fileID: 1741322660}
   - component: {fileID: 1741322662}
   - component: {fileID: 1741322661}
-  - component: {fileID: 1741322664}
   - component: {fileID: 1741322663}
+  - component: {fileID: 1741322665}
   m_Layer: 0
   m_Name: logo-hanze-oranje-wit-rgb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1741322660
 RectTransform:
   m_ObjectHideFlags: 0
@@ -575,28 +591,23 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!95 &1741322664
-Animator:
-  serializedVersion: 7
+--- !u!114 &1741322665
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1741322659}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 902056ad20e8d9b4785c130d365c2b22, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ee207d5a9539f47a8a98829e415350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myUIGroup: {fileID: 1741322663}
+  fadeIn: 0
+  fadeOut: 0
+  delay: 1.5
+  isInterreg: 0
 --- !u!1 &1748944727
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,13 +742,14 @@ GameObject:
   - component: {fileID: 2005522669}
   - component: {fileID: 2005522672}
   - component: {fileID: 2005522671}
+  - component: {fileID: 2005522673}
   m_Layer: 0
   m_Name: Interreg Buffer+_Transparant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2005522668
 RectTransform:
   m_ObjectHideFlags: 0
@@ -803,7 +815,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005522667}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d92654f6778298c47b7191b47426f77a, type: 2}
   m_CullingMode: 0
@@ -829,6 +841,23 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &2005522673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005522667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ee207d5a9539f47a8a98829e415350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myUIGroup: {fileID: 2005522672}
+  fadeIn: 0
+  fadeOut: 0
+  delay: 3
+  isInterreg: 1
 --- !u!1 &2092788303
 GameObject:
   m_ObjectHideFlags: 0
