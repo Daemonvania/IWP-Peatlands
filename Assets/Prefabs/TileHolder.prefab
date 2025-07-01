@@ -50,6 +50,10 @@ MonoBehaviour:
   rayLength: 2.5
   emptyTile: {fileID: 2503951459103459402}
   completedMat: {fileID: 2100000, guid: 3d22a41f86ea8b34c8ed4ea988767fc8, type: 2}
+  _tileTooltip: {fileID: 0}
+  placeTileSound: {fileID: 8300000, guid: 47304af3c6bd2604e952e87d226aa7eb, type: 3}
+  businnessModelSound: {fileID: 8300000, guid: 91cf154ca5f71144bb288fd0cd0ea48a, type: 3}
+  grayscale: 0.3
 --- !u!136 &4288940273902928874
 CapsuleCollider:
   m_ObjectHideFlags: 0

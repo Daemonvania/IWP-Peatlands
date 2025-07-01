@@ -21,9 +21,14 @@ public class TileHolder : MonoBehaviour
 
 
     //Setting the sound clip variable
-    //[SerializeField] private AudioClip placeTileSound;
-   
-   public TileSO getTile()
+    [SerializeField] private AudioClip placeTileSound;
+    [SerializeField] private AudioClip businnessModelSound;
+
+    //Making the variables for greyscaling
+    [SerializeField]
+    [Range(0, 1)]
+    float grayscale;
+    public TileSO getTile()
    {
        return currentTile;
    }
@@ -79,7 +84,7 @@ public class TileHolder : MonoBehaviour
 
         //Play the sound when place tile is called
 
-        //SoundFXManager.Instance.PlaySoundFXClip(placeTileSound, transform, 1f);
+        SoundFXManager.Instance.PlaySoundFXClip(placeTileSound, transform, 0.3f);
     }
 
     public void CheckForModel()
@@ -179,6 +184,13 @@ public class TileHolder : MonoBehaviour
                 _manageCurrencies.AddEnvironment(businessModel.EcoScore);
                 matchFound = true;
 
+                //Play completion sound
+                SoundFXManager.Instance.PlaySoundFXClip(businnessModelSound, transform, 0.3f);
+
+
+                //Grey out the materials of the tile when a business model is completed
+                //DarkenMaterials();
+
                 foreach (var tileHolder in previousTileHolders)
                 {
                     //todo rough
@@ -186,6 +198,7 @@ public class TileHolder : MonoBehaviour
                     {
                         continue;
                     }
+                    DarkenMaterials(tileHolder.tileGameObject);
                     tileHolder.currentBusinessModel = businessModel;
                     tileHolder.tileGameObject.transform.DOPunchPosition(new Vector3(0, 0.5f, 0), 0.6f, 3, 0.25f);
                     tileHolder.GetComponentInChildren<Tile>().SetCompletedMaterial();
@@ -216,5 +229,18 @@ public class TileHolder : MonoBehaviour
             }
         }
     }
-    
+
+    public void DarkenMaterials(GameObject tileGameObject)
+    {
+       
+        Renderer[] renderers = tileGameObject.GetComponentsInChildren<Renderer>();
+        foreach (Renderer renderer in renderers)
+        {
+            
+            foreach (Material material in renderer.materials)
+            {
+                material.color *= new Color(grayscale, grayscale, grayscale);
+            }
+        }
+    }
 }
